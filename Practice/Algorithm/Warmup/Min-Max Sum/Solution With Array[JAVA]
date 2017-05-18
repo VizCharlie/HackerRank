@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int[] arr = new int[5];
+        int index;
+        long min = (long) Math.pow(10,9), max = 1,sum = 0;
+        
+        for(index = 0; index < 5; index++){
+            arr[index] = input.nextInt();
+            sum += arr[index];
+            if(min > arr[index]){
+                min = arr[index];
+            }
+            if(max < arr[index]){
+                max = arr[index];
+            }
+        }
+        
+        System.out.println((sum - max) + " " + (sum - min));
+    }
+}
