@@ -6,7 +6,7 @@ public class Solution {
     public static void main(String[] args) {
         Scanner input = new Scanner(System.in);
         
-        int row = input.nextInt(), index_x , index_y , pDiaSum = 0, sDiaSum = 0, temp;
+        int row = input.nextInt(), index_x , index_y , pDiaSum = 0, sDiaSum = 0;
         int[][] matrix = new int[row][row];
         
         for(index_x = 0 ; index_x < row ; index_x++){
@@ -20,12 +20,9 @@ public class Solution {
                 if(index_x + index_y + 1 == row){
                     sDiaSum += input.nextInt();
                 }else
-                
-                input.nextInt();
+                    input.nextInt();
         	}
-        }
-        
-        System.out.println(Math.abs(pDiaSum - sDiaSum));
-        
+        }        
+        System.out.println(Math.abs(pDiaSum - sDiaSum));       
     }
 }
