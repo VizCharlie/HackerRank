@@ -1,0 +1,33 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int index_a, index_o, count_a = 0, count_o = 0; 
+        int start = input.nextInt(), end = input.nextInt(), appleTree = input.nextInt(), orangeTree = input.nextInt(), numApple = input.nextInt(), numOrange = input.nextInt();
+        
+        int[] apple = new int[numApple];
+        for(index_a = 0; index_a < numApple; index_a++){
+            apple[index_a] = input.nextInt();
+            if(appleTree + apple[index_a] >= start && appleTree + apple[index_a] <= end){
+                count_a++;
+            }
+        }
+        
+        int[] orange = new int[numOrange];
+        for(index_o = 0; index_o < numOrange; index_o++){
+            orange[index_o] = input.nextInt();
+            if(orangeTree + orange[index_o] >= start && orangeTree + orange[index_o] <= end){
+                count_o++;
+            }
+        }
+        
+        System.out.println(count_a);
+        System.out.println(count_o);
+    }
+}
