@@ -1,0 +1,28 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int startKang1 = input.nextInt(), speedKang1 = input.nextInt(), startKang2 = input.nextInt(), speedKang2 = input.nextInt();
+        int hop, flag = 0;
+
+        if(speedKang1 > speedKang2){
+            for(hop = 1; hop <= 10000; hop++){
+                if((speedKang1 * hop) + startKang1 == (speedKang2 * hop) + startKang2){
+                    flag = 1;
+                    hop = 10001;
+                }
+            }
+            if(flag == 1){
+                System.out.println("YES");
+            }else
+              System.out.println("NO");
+        }else
+            System.out.println("NO");
+    }
+}
