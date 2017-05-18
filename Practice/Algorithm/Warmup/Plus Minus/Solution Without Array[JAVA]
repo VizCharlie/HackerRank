@@ -1,0 +1,27 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        float pCount = 0, nCount = 0, zCount = 0, index = 0, val = 0, length = input.nextFloat();
+        
+        while(index < length){
+            val = input.nextInt();
+            if(val < 0){
+                nCount++;
+            }else if(val > 0){
+                pCount++;
+            }else
+                zCount++;
+            
+            index++;
+        }
+        
+        System.out.printf("%.6f%n", pCount/length);
+        System.out.printf("%.6f%n", nCount/length);
+        System.out.printf("%.6f%n", zCount/length);        
+    }
+}
