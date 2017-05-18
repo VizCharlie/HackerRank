@@ -1,0 +1,58 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int getMin(int[] arr){
+        int min = 100, index;
+        
+        for(index = 0; index < arr.length; index++){
+            if(min > arr[index]){
+                min = arr[index];
+            }    
+        }       
+        return min;
+    }
+    
+    static int getTotalX(int[] a, int[] b){
+        int min_a = getMin(a), min_b = getMin(b), index_x, index_y, countMod = 0, countNum = 0;
+        for(index_x = min_a; index_x <= min_b; index_x++){
+            for(index_y = 0; index_y < a.length; index_y++){
+                if(index_x % a[index_y] == 0){
+                    countMod++;
+                }
+            }
+            for(index_y = 0; index_y < b.length; index_y++){
+                if(b[index_y] % index_x == 0){
+                    countMod++;
+                }
+            }
+            
+            if(countMod == a.length + b.length){
+                countNum++;
+            }  
+            
+            countMod = 0;
+        }
+        return countNum;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int[] a = new int[n];
+        for(int a_i=0; a_i < n; a_i++){
+            a[a_i] = in.nextInt();
+        }
+        int[] b = new int[m];
+        for(int b_i=0; b_i < m; b_i++){
+            b[b_i] = in.nextInt();
+        }
+        int total = getTotalX(a, b);
+        System.out.println(total);
+    }
+}
