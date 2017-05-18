@@ -1,0 +1,17 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+
+public class Solution {
+
+    public static void main(String[] args) throws ParseException{
+        Scanner input = new Scanner(System.in);
+        String time = input.nextLine();
+        
+        DateFormat parse12 = new SimpleDateFormat("hh:mm:ssaa");
+        DateFormat parse24 = new SimpleDateFormat("HH:mm:ss");
+        Date d = parse12.parse(time);
+        
+        System.out.println(parse24.format(d));
+    }
+}
