@@ -3,7 +3,7 @@ Consider two sets of positive integers, A = {a0, a1,..., a(n-1)} and B = {b0, b1
     All elements in are factors of x.
     x is a factor of all elements in B.
 
-In other words, some x is between A and B if that value of x satisfies (x)mod(ai) = 0 for every ai in A and also satisfies (bi)mod(x) for every bi in B. For example, if A = {2 , 6} and B = {1, 2}, then our possible x values are 4, 6 and 12.
+In other words, some x is between A and B if that value of x satisfies (x)mod(ai) = 0 for every ai in A and also satisfies (bi)mod(x) for every bi in B. For example, if A = {2 , 6} and B = {12}, then our possible x values are 4, 6 and 12.
 
 Given A and B, find and print the number of integers (i.e., possible x's) that are between the two sets.
 
