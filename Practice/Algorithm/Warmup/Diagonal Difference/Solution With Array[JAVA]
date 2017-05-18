@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        int row = input.nextInt(), index_x , index_y , diaDiff = 0;
+        int[][] matrix = new int[row][row];
+        
+        for(index_x = 0 ; index_x < row ; index_x++){
+        	for(index_y = 0; index_y < row; index_y++){
+        		matrix[index_x][index_y] = input.nextInt();
+        	}
+        }
+        
+        for(index_x = 0 ; index_x < row ; index_x++){
+            diaDiff += matrix[index_x][index_x] - matrix[index_x][row - index_x - 1];
+        }
+        
+        System.out.println(Math.abs(diaDiff));
+        
+    }
+}
