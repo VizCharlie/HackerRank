@@ -1,0 +1,19 @@
+//NOTE : THEY DONT CHECK IF YOU HAVE CREATED AN ARRAY OR NOT. SO I JUST USED INPUT AND PRINTED OUTPUT WITHOUT USING ARRAY.
+
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int index = 0, length = input.nextInt(), sum = 0;
+        
+        while(index < length){
+            sum += input.nextInt();
+            index++;
+        }
+        
+        System.out.println(sum);
+    }
+}
