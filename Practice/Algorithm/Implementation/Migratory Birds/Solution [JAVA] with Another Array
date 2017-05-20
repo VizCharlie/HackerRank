@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int length = input.nextInt(), index, maxNum, mostRep = 0;
+        int[] types = new int[length];
+        int[] max = new int[5];
+        
+        for(index = 0; index < length; index++){
+            types[index] = input.nextInt();
+            max[types[index] - 1]++;
+        }
+        
+        maxNum = max[0];
+        for(index = 0; index < 5; index++){
+            if(maxNum < max[index]){
+                maxNum = max[index];
+                mostRep = index + 1;
+            }
+        }
+        
+        System.out.println(mostRep);
+    }
+}
