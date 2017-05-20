@@ -5,7 +5,7 @@ Given n and the color of each sock, how many pairs of socks can John sell?
 Input Format
 
 The first line contains an integer, n, denoting the number of socks.
-The second line contains n space-separated integers describing the respective values of .
+The second line contains n space-separated integers describing the respective values of c0, c1,..., c(n-1).
 
 Constraints
     1 <= n <= 100
