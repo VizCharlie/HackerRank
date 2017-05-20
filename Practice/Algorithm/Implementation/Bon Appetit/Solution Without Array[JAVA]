@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int order = input.nextInt(), notEaten = input.nextInt(), index, sum = 0, charged;
+        
+        for(index = 0; index < order ; index++){
+            if(index != notEaten){
+                sum += input.nextInt();
+            }else
+                input.nextInt();
+        }
+        
+        charged = input.nextInt();
+        
+        if(charged - (sum / 2) == 0){
+            System.out.println("Bon Appetit");
+        }else{
+            System.out.println(charged - (sum / 2));
+        }
+    }
+}
