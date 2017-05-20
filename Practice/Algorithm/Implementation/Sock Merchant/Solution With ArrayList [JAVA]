@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int totalSocks = input.nextInt(), index, count = 0;
+        int socks[] = new int[totalSocks];
+        ArrayList<Integer> pair = new ArrayList<>(); 
+        
+        for(index = 0; index < totalSocks; index++){
+            socks[index] = input.nextInt();
+            if(pair.contains(socks[index])){
+            	count++;
+            	pair.remove(new Integer(socks[index]));
+            }else{
+            	pair.add(socks[index]);
+            }
+        }
+        System.out.println(count);           
+    }
+}
