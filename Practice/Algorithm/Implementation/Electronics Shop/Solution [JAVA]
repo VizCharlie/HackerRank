@@ -1,0 +1,49 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    static int getMoneySpent(int[] keyboards, int[] drives, int s){
+        int index_x, index_y, minDiff = s, diff = 0, price = 0, flag = 1, result = 0;
+        
+        for(index_x = 0; index_x < keyboards.length; index_x++){
+            for(index_y = 0; index_y < drives.length; index_y++){
+                price = keyboards[index_x] + drives[index_y];
+                diff = s - price;
+                if(diff >= 0){
+                    if(diff < minDiff){
+                        minDiff = diff;
+                        result = price;
+                        flag = 0;
+                    }
+                }              
+            }
+        }
+        
+        if(flag == 1){
+            return -1;
+        }else
+            return result;
+    }
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        int s = in.nextInt();
+        int n = in.nextInt();
+        int m = in.nextInt();
+        int[] keyboards = new int[n];
+        for(int keyboards_i=0; keyboards_i < n; keyboards_i++){
+            keyboards[keyboards_i] = in.nextInt();
+        }
+        int[] drives = new int[m];
+        for(int drives_i=0; drives_i < m; drives_i++){
+            drives[drives_i] = in.nextInt();
+        }
+        //  The maximum amount of money she can spend on a keyboard and USB drive, or -1 if she can't purchase both items
+        int moneySpent = getMoneySpent(keyboards, drives, s);
+        System.out.println(moneySpent);
+    }
+}
