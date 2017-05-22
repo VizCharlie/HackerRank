@@ -1,0 +1,30 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int index, steps = input.nextInt(), count = 0, flag = 0, valley = 0;
+        String mount = input.next();
+        
+        for(index = 0; index < steps; index++){
+            if(mount.charAt(index) == 'U'){
+                count++;
+            }else if(mount.charAt(index) == 'D'){
+                count--;
+            }
+            
+            if(count < 0 && flag == 0){
+                flag = 1;
+                valley++;
+            }
+            
+            if(count >= 0 && flag == 1){
+                flag = 0;
+            }
+        }
+        
+        System.out.println(valley);
+    }
+}
