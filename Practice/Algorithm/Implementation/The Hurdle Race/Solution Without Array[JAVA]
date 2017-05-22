@@ -1,0 +1,25 @@
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        int hurdles = input.nextInt(), max = 0, jump = input.nextInt(), index, hurdleHeight;
+
+        for(index = 0; index < hurdles; index++){
+            hurdleHeight = input.nextInt();
+            if(max < hurdleHeight){
+                max = hurdleHeight;
+            }
+        }
+        
+        if(max - jump < 0){
+            System.out.println("0");
+        }else
+            System.out.println(max - jump);
+    }
+}
