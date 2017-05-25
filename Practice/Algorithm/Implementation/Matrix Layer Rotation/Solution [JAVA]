@@ -1,0 +1,78 @@
+import java.util.*;
+
+public class rotateMatrixLayer{
+	static Scanner input = new Scanner(System.in);
+	
+	public static void rotateMatrix(int[][] matrix, int row, int col, int rotate){
+		int rowMin, rowMax, colMin, colMax, value_1, value_2, value_3, value_4, swap = 0, index_x, index_y, min, temp;
+		
+		if(row > col){
+			min = col;
+		}else
+			min = row;
+		
+		for(index_x = (min / 2) - 1; index_x >= 0; index_x--){
+			temp = rotate % ((((col - (2 * index_x)) + (row - (2 * index_x))) * 2) - 4);
+
+			while(temp-- > 0){
+
+				rowMin = index_x; colMin = index_x; rowMax = row - index_x - 1; colMax = col - index_x - 1;
+				
+				value_1 = matrix[rowMin][colMin];
+				value_2 = matrix[rowMin][colMax];
+				value_3 = matrix[rowMax][colMin];
+				value_4 = matrix[rowMax][colMax];
+				
+				
+				for(index_y = colMin + 1; index_y <= colMax; index_y++){
+					swap = matrix[colMin][index_y];
+					matrix[colMin][index_y] = matrix[colMin][index_y - 1];
+					matrix[colMin][index_y - 1] = swap;
+				}
+				
+				for(index_y = rowMax - 1; index_y > rowMin; index_y--){
+					swap = matrix[index_y][colMin];
+					matrix[index_y][colMin] = matrix[index_y + 1][colMin];
+					matrix[index_y + 1][colMin] = swap;
+				}
+				
+				for(index_y = colMax - 1; index_y > colMin; index_y--){
+					swap = matrix[rowMax][index_y];
+					matrix[rowMax][index_y] = matrix[rowMax][index_y + 1];
+					matrix[rowMax][index_y + 1] = swap;
+				}
+				
+				for(index_y = rowMin + 1; index_y < rowMax; index_y++){
+					swap = matrix[index_y][colMax];
+					matrix[index_y][colMax] = matrix[index_y - 1][colMax];
+					matrix[index_y - 1][colMax] = swap;
+				}
+				
+				matrix[rowMin + 1][colMin] = value_1;
+				matrix[rowMax][colMin + 1] = value_3;
+				matrix[rowMax - 1][colMax] = value_4;
+			}
+		}
+	}
+	
+	public static void main(String args[]){
+		int row = input.nextInt(), col = input.nextInt(), rotate = input.nextInt(), index_x, index_y;
+		int[][] matrix = new int[row][col];
+		
+		
+		for(index_x = 0; index_x < row; index_x++){
+			for(index_y = 0; index_y < col; index_y++){
+				matrix[index_x][index_y] = input.nextInt();
+			}
+		}
+		
+		rotateMatrix(matrix, row, col, rotate);
+		
+		for(index_x = 0; index_x < row; index_x++){
+			for(index_y = 0; index_y < col; index_y++){
+				System.out.print(matrix[index_x][index_y] + " ");
+			}
+			System.out.println();
+		}
+	}
+}	
