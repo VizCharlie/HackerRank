@@ -1,0 +1,44 @@
+import java.util.*;
+import java.math.BigInteger;
+
+public class Solution {	
+	public static boolean isPowerOfTwo(BigInteger num){
+	
+		return((num != BigInteger.ZERO) && num.and(num.subtract(BigInteger.ONE)).equals(BigInteger.ZERO));
+	}
+	
+	public static BigInteger getSubString(String plates, int length, BigInteger count, BigInteger num){
+		int index_x, index_y;
+		String subString;
+
+		for(index_x = 0; index_x < length; index_x++){
+			for(index_y = 1; index_y <= length - index_x; index_y++){
+				subString = plates.substring(index_x, index_x + index_y);
+				if(!(subString.charAt(0) == '0')){
+					num = new BigInteger(subString);
+					if(num.equals(BigInteger.ONE) || num.equals(BigInteger.valueOf(2))|| num.divide(BigInteger.valueOf(2)).remainder(BigInteger.valueOf(2)) == BigInteger.ZERO){
+				System.out.println(num);
+						if(isPowerOfTwo(num)){
+							count = count.add(BigInteger.ONE);
+						}
+					}
+				}
+			}
+		}
+				
+		return count;
+	}
+	
+	public static void main(String[] args){
+		Scanner input = new Scanner(System.in);
+		int testCase = input.nextInt(), length;
+		String plates;
+		BigInteger num = new BigInteger("0"), count = BigInteger.ZERO;
+
+		while(testCase-- > 0){
+			plates = input.next();
+			length = plates.length();
+			System.out.println(getSubString(plates, length, count, num));
+		}		
+	}	
+}
