@@ -17,7 +17,7 @@ public class Solution {
 				if(!(subString.charAt(0) == '0')){
 					num = new BigInteger(subString);
 					if(num.equals(BigInteger.ONE) || num.equals(BigInteger.valueOf(2))|| num.divide(BigInteger.valueOf(2)).remainder(BigInteger.valueOf(2)) == BigInteger.ZERO){
-				System.out.println(num);
+						//System.out.println(num);
 						if(isPowerOfTwo(num)){
 							count = count.add(BigInteger.ONE);
 						}
