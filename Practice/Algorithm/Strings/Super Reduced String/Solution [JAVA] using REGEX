@@ -1,0 +1,19 @@
+import java.util.Scanner;
+
+public class StringDuplicates {
+	
+	public static void main(String[] args) {
+		Scanner input = new Scanner(System.in);	
+		String str = input.next(), tempStr = "";
+		
+		while(!tempStr.equals(str)){
+			tempStr = str;
+			str = str.replaceAll("(.)(\\1)", "");			
+		}
+		
+		if(tempStr.length() == 0)
+			System.out.println("Empty String");
+		else
+			System.out.println(str);
+	}
+}
