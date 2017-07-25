@@ -11,7 +11,7 @@ public class Solution {
 		ways[0] = 1;
         
 		for(long coin : coinVals){
-			for(long index = coin; index < ways.length; index++)
+			for(long index = coin; index <= total; index++)
 				ways[(int) index] = ways[(int) index] + ways[(int) (index - coin)];
 		}
        
