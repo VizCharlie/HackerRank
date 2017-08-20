@@ -15,7 +15,7 @@ public class Solution {
         int testCase = input.nextInt();
         
         while(testCase-- > 0){
-            long num = input.nextInt() - 1;
+            long num = input.nextLong() - 1;
             
             System.out.println(getSum(num / 3, 3) + getSum(num / 5, 5) - getSum(num / 15, 15));
         }
