@@ -15,8 +15,9 @@
               ans = "Weird";
             }
             else{
-            
-                ans = "Not Weird";
+                
+                if(n >= 6 && n <= 20) ans = "Weird";
+                else ans = "Not Weird";
                 
             }
             System.out.println(ans);
