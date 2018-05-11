@@ -9,7 +9,7 @@ import java.util.regex.*;
 public class Solution {
 
     static String hackerrankInString(String s) {
-        if(Pattern.matches(".*h.*a.*c.*k.*e.*r.*r.*a.*n.*k.*", s)) return "YES";
+        if(Pattern.matches(".*h.*a.*c.*k.*e.*r.*r.*a.*n.*k.*", s.toLowerCase())) return "YES";
         else return "NO";
 
     }
