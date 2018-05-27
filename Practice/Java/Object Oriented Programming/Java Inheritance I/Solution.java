@@ -1,17 +1,34 @@
-public class Solution {
-    public static final MyCalculator my_calculator = new MyCalculator();
-    public static final Scanner in = new Scanner(System.in);
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+class Animal{
+	void walk()
+	{
+		System.out.println("I am walking");
+	}
+}
+
+class Bird extends Animal{
+	void fly(){
+		System.out.println("I am flying");
+	}
     
-    public static void main(String[] args) {
-        while (in .hasNextInt()) {
-            int n = in .nextInt();
-            int p = in .nextInt();
-            
-            try {
-                System.out.println(my_calculator.power(n, p));
-            } catch (Exception e) {
-                System.out.println(e);
-            }
-        }
+    void sing(){
+        System.out.println("I am singing");
     }
+}
+
+public class Solution{
+
+   public static void main(String args[]){
+
+	  Bird bird = new Bird();
+	  bird.walk();
+	  bird.fly();
+      bird.sing();
+	
+   }
 }
