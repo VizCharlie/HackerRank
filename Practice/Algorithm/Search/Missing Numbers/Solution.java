@@ -41,7 +41,6 @@ public class Solution {
         index = 0;
          
         for(Integer element : keys) tempArr[index++] = element.intValue();
-        Arrays.sort(tempArr);
         
         return tempArr;
     }
